@@ -641,5 +641,371 @@ const playersData = [
         birth: "1998-01-07",
         status: "支配下"
     }
+    // =========================
+    // 読売ジャイアンツ
+    // =========================
 
+    // 投手
+    {
+        name: "田中将大",
+        team: "読売ジャイアンツ",
+        number: "11",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1988-11-01",
+        status: "支配下"
+    },
+    {
+        name: "大勢",
+        team: "読売ジャイアンツ",
+        number: "15",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1999-06-29",
+        status: "支配下"
+    },
+    {
+        name: "西舘勇陽",
+        team: "読売ジャイアンツ",
+        number: "17",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2002-03-11",
+        status: "支配下"
+    },
+    {
+        name: "山﨑伊織",
+        team: "読売ジャイアンツ",
+        number: "19",
+        position: "投手",
+        batsThrows: "右投左打",
+        birth: "1998-10-10",
+        status: "支配下"
+    },
+    {
+        name: "戸郷翔征",
+        team: "読売ジャイアンツ",
+        number: "20",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2000-04-04",
+        status: "支配下"
+    },
+    {
+        name: "竹丸和幸",
+        team: "読売ジャイアンツ",
+        number: "21",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2002-02-26",
+        status: "支配下"
+    },
+    {
+        name: "代木大和",
+        team: "読売ジャイアンツ",
+        number: "25",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2003-09-08",
+        status: "支配下"
+    },
+    {
+        name: "ウィットリー",
+        team: "読売ジャイアンツ",
+        number: "26",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1997-09-15",
+        status: "支配下"
+    },
+    {
+        name: "ハワード",
+        team: "読売ジャイアンツ",
+        number: "28",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1996-07-28",
+        status: "支配下"
+    },
+    {
+        name: "田和廉",
+        team: "読売ジャイアンツ",
+        number: "30",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2003-05-02",
+        status: "支配下"
+    },
+    {
+        name: "赤星優志",
+        team: "読売ジャイアンツ",
+        number: "31",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1999-07-02",
+        status: "支配下"
+    },
+    {
+        name: "山城京平",
+        team: "読売ジャイアンツ",
+        number: "36",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2003-09-20",
+        status: "支配下"
+    },
+    {
+        name: "中川皓太",
+        team: "読売ジャイアンツ",
+        number: "41",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1994-02-24",
+        status: "支配下"
+    },
+    {
+        name: "マタ",
+        team: "読売ジャイアンツ",
+        number: "42",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1999-05-03",
+        status: "支配下"
+    },
+    {
+        name: "則本昂大",
+        team: "読売ジャイアンツ",
+        number: "43",
+        position: "投手",
+        batsThrows: "右投左打",
+        birth: "1990-12-17",
+        status: "支配下"
+    },
+    {
+        name: "田中瑛斗",
+        team: "読売ジャイアンツ",
+        number: "45",
+        position: "投手",
+        batsThrows: "右投左打",
+        birth: "1999-07-13",
+        status: "支配下"
+    },
+    {
+        name: "又木鉄平",
+        team: "読売ジャイアンツ",
+        number: "46",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1999-02-12",
+        status: "支配下"
+    },
+    {
+        name: "森田駿哉",
+        team: "読売ジャイアンツ",
+        number: "47",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1997-02-11",
+        status: "支配下"
+    },
+    {
+        name: "ルシアーノ",
+        team: "読売ジャイアンツ",
+        number: "48",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2000-02-15",
+        status: "支配下"
+    },
+    {
+        name: "バルドナード",
+        team: "読売ジャイアンツ",
+        number: "49",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1993-02-01",
+        status: "支配下"
+    },
+    {
+        name: "高梨雄平",
+        team: "読売ジャイアンツ",
+        number: "53",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1992-07-13",
+        status: "支配下"
+    },
+    {
+        name: "松浦慶斗",
+        team: "読売ジャイアンツ",
+        number: "54",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2003-07-01",
+        status: "支配下"
+    },
+    {
+        name: "北浦竜次",
+        team: "読売ジャイアンツ",
+        number: "56",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2000-01-12",
+        status: "支配下"
+    },
+    {
+        name: "宮原駿介",
+        team: "読売ジャイアンツ",
+        number: "57",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2002-09-12",
+        status: "支配下"
+    },
+    {
+        name: "船迫大雅",
+        team: "読売ジャイアンツ",
+        number: "58",
+        position: "投手",
+        batsThrows: "右投左打",
+        birth: "1996-10-16",
+        status: "支配下"
+    },
+    {
+        name: "横川凱",
+        team: "読売ジャイアンツ",
+        number: "62",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2000-08-30",
+        status: "支配下"
+    },
+    {
+        name: "泉圭輔",
+        team: "読売ジャイアンツ",
+        number: "63",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1997-03-02",
+        status: "支配下"
+    },
+    {
+        name: "山田龍聖",
+        team: "読売ジャイアンツ",
+        number: "64",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2000-09-07",
+        status: "支配下"
+    },
+    {
+        name: "石川達也",
+        team: "読売ジャイアンツ",
+        number: "65",
+        position: "投手",
+        batsThrows: "左投右打",
+        birth: "1998-04-15",
+        status: "支配下"
+    },
+    {
+        name: "平内龍太",
+        team: "読売ジャイアンツ",
+        number: "66",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1998-08-01",
+        status: "支配下"
+    },
+    {
+        name: "堀田賢慎",
+        team: "読売ジャイアンツ",
+        number: "91",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2001-05-21",
+        status: "支配下"
+    },
+    {
+        name: "マルティネス",
+        team: "読売ジャイアンツ",
+        number: "92",
+        position: "投手",
+        batsThrows: "右投左打",
+        birth: "1996-10-11",
+        status: "支配下"
+    },
+    {
+        name: "井上温大",
+        team: "読売ジャイアンツ",
+        number: "97",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2001-05-13",
+        status: "支配下"
+    },
+    {
+        name: "小笠原慎之介",
+        team: "読売ジャイアンツ",
+        number: "98",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1997-10-08",
+        status: "支配下"
+    },
+
+    // 捕手
+    {
+        name: "甲斐拓也",
+        team: "読売ジャイアンツ",
+        number: "10",
+        position: "捕手",
+        batsThrows: "右投右打",
+        birth: "1992-11-05",
+        status: "支配下"
+    },
+    {
+        name: "小林誠司",
+        team: "読売ジャイアンツ",
+        number: "22",
+        position: "捕手",
+        batsThrows: "右投右打",
+        birth: "1989-06-07",
+        status: "支配下"
+    },
+    {
+        name: "大城卓三",
+        team: "読売ジャイアンツ",
+        number: "24",
+        position: "捕手",
+        batsThrows: "右投左打",
+        birth: "1993-02-11",
+        status: "支配下"
+    },
+    {
+        name: "岸田行倫",
+        team: "読売ジャイアンツ",
+        number: "27",
+        position: "捕手",
+        batsThrows: "右投右打",
+        birth: "1996-10-10",
+        status: "支配下"
+    },
+    {
+        name: "郡拓也",
+        team: "読売ジャイアンツ",
+        number: "37",
+        position: "捕手",
+        batsThrows: "右投右打",
+        birth: "1998-04-25",
+        status: "支配下"
+    },
+    {
+        name: "山瀬慎之助",
+        team: "読売ジャイアンツ",
+        number: "67",
+        position: "捕手",
+        batsThrows: "右投右打",
+        birth: "2001-05-04",
+        status: "支配下"
+    },
 ];
