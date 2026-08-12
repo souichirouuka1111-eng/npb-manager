@@ -352,13 +352,21 @@ function formatDate(dateString) {
 
 function nextDay() {
 
-  const date =
-    new Date(game.date + "T00:00:00");
+  const parts = game.date.split("-");
+
+  let year = Number(parts[0]);
+  let month = Number(parts[1]);
+  let day = Number(parts[2]);
+
+  const date = new Date(year, month - 1, day);
 
   date.setDate(date.getDate() + 1);
 
-  game.date =
-    date.toISOString().slice(0, 10);
+  year = date.getFullYear();
+  month = String(date.getMonth() + 1).padStart(2, "0");
+  day = String(date.getDate()).padStart(2, "0");
+
+  game.date = `${year}-${month}-${day}`;
 
   saveGame();
 
