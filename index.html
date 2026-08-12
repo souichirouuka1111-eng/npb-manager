@@ -3,168 +3,707 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NPB MANAGER テスト</title>
+
+<title>NPB MANAGER</title>
 
 <style>
+
 body {
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 0;
-    padding: 20px;
-    background: #f3f4f6;
+    background: #f2f4f7;
+    color: #17202a;
 }
 
-button {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    margin: 8px 0;
-    font-size: 18px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    background: white;
-}
-
-#game {
-    display: none;
-}
-
-#next {
+header {
     background: #14213d;
     color: white;
+    padding: 20px;
 }
 
-#reset {
-    background: #ffe5e5;
+main {
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
 }
 
 .card {
     background: white;
-    padding: 20px;
     border-radius: 15px;
+    padding: 18px;
     margin-bottom: 15px;
 }
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin: 5px 0;
+    border: 0;
+    border-radius: 10px;
+    background: #e9edf2;
+    font-size: 16px;
+}
+
+.primary {
+    background: #14213d;
+    color: white;
+}
+
+.danger {
+    background: #ffe1e1;
+    color: #a00000;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.player {
+    text-align: left;
+}
+
+.player strong {
+    display: block;
+    font-size: 17px;
+}
+
+.small {
+    color: #69747d;
+    font-size: 13px;
+}
+
+.back {
+    background: #ddd;
+}
+
 </style>
 </head>
 
 <body>
 
-<div id="select" class="card">
+<header>
 
 <h1>⚾ NPB MANAGER</h1>
 
-<h2>球団を選択</h2>
+<div>監督・GMシミュレーション</div>
 
-<button onclick="chooseTeam('阪神タイガース')">
-阪神タイガース
-</button>
+</header>
 
-<button onclick="chooseTeam('読売ジャイアンツ')">
-読売ジャイアンツ
-</button>
 
-<button onclick="chooseTeam('横浜DeNAベイスターズ')">
-横浜DeNAベイスターズ
-</button>
+<main>
 
-<button onclick="chooseTeam('広島東洋カープ')">
-広島東洋カープ
-</button>
 
-<button onclick="chooseTeam('中日ドラゴンズ')">
-中日ドラゴンズ
-</button>
+<!-- 球団選択 -->
 
-<button onclick="chooseTeam('東京ヤクルトスワローズ')">
-東京ヤクルトスワローズ
+<section id="teamSelect" class="card">
+
+<h2>監督する球団を選択</h2>
+
+<div id="teamButtons"></div>
+
+</section>
+
+
+
+<!-- ゲーム -->
+
+<section id="game" class="hidden">
+
+
+<div class="card">
+
+<h2 id="teamName"></h2>
+
+<div id="date"></div>
+
+<br>
+
+<button class="primary" onclick="nextDay()">
+▶ 次の日へ
 </button>
 
 </div>
 
 
-<div id="game">
 
 <div class="card">
 
-<h1>⚾ NPB MANAGER</h1>
+<h2>メニュー</h2>
 
-<p>
-監督球団：
-<strong id="team"></strong>
-</p>
-
-<h2 id="date"></h2>
-
-<button id="next" onclick="nextDay()">
-▶ 次の日へ
+<button onclick="showPlayers()">
+👤 選手
 </button>
 
-<button id="reset" onclick="resetGame()">
+<button onclick="changeTeam()">
+🏟 球団変更
+</button>
+
+<button class="danger" onclick="resetGame()">
 ゲームをリセット
 </button>
 
 </div>
 
+
+
+<div id="content" class="card">
+
+<h2>ホーム</h2>
+
+<p>
+監督としてシーズンを開始します。
+</p>
+
 </div>
+
+
+</section>
+
+
+
+</main>
 
 
 <script>
 
-let team = null;
 
-let date = new Date(2027, 2, 25);
+/* ==========================
+   球団
+========================== */
+
+const teams = [
+
+"阪神タイガース",
+"横浜DeNAベイスターズ",
+"読売ジャイアンツ",
+"中日ドラゴンズ",
+"広島東洋カープ",
+"東京ヤクルトスワローズ",
+
+"福岡ソフトバンクホークス",
+"北海道日本ハムファイターズ",
+"オリックス・バファローズ",
+"東北楽天ゴールデンイーグルス",
+"埼玉西武ライオンズ",
+"千葉ロッテマリーンズ"
+
+];
 
 
-function chooseTeam(name) {
 
-    team = name;
+/* ==========================
+   初期ゲームデータ
+========================== */
 
-    date = new Date(2027, 2, 25);
+let game = {
 
-    document.getElementById("team").textContent = team;
+team: null,
 
-    updateDate();
+date: "2027-03-25"
 
-    document.getElementById("select").style.display = "none";
+};
 
-    document.getElementById("game").style.display = "block";
+
+
+/* ==========================
+   保存
+========================== */
+
+function saveGame() {
+
+localStorage.setItem(
+"npb_manager_save",
+JSON.stringify(game)
+);
 
 }
 
 
-function updateDate() {
 
-    document.getElementById("date").textContent =
-        date.getFullYear() +
-        "年" +
-        (date.getMonth() + 1) +
-        "月" +
-        date.getDate() +
-        "日";
+/* ==========================
+   読み込み
+========================== */
+
+function loadGame() {
+
+const saved =
+localStorage.getItem("npb_manager_save");
+
+if (saved) {
+
+game = JSON.parse(saved);
 
 }
 
+}
+
+
+
+/* ==========================
+   球団ボタン
+========================== */
+
+function createTeamButtons() {
+
+const box =
+document.getElementById("teamButtons");
+
+teams.forEach(team => {
+
+const button =
+document.createElement("button");
+
+button.textContent = team;
+
+button.onclick = () => {
+
+selectTeam(team);
+
+};
+
+box.appendChild(button);
+
+});
+
+}
+
+
+
+/* ==========================
+   球団選択
+========================== */
+
+function selectTeam(team) {
+
+game.team = team;
+
+game.date = "2027-03-25";
+
+saveGame();
+
+showGame();
+
+}
+
+
+
+/* ==========================
+   ゲーム表示
+========================== */
+
+function showGame() {
+
+document
+.getElementById("teamSelect")
+.classList.add("hidden");
+
+document
+.getElementById("game")
+.classList.remove("hidden");
+
+updateDisplay();
+
+}
+
+
+
+/* ==========================
+   表示更新
+========================== */
+
+function updateDisplay() {
+
+document
+.getElementById("teamName")
+.textContent =
+game.team;
+
+document
+.getElementById("date")
+.textContent =
+formatDate(game.date);
+
+}
+
+
+
+/* ==========================
+   日付
+========================== */
+
+function formatDate(date) {
+
+const p =
+date.split("-");
+
+return (
+
+Number(p[0]) +
+"年" +
+Number(p[1]) +
+"月" +
+Number(p[2]) +
+"日"
+
+);
+
+}
+
+
+
+/* ==========================
+   次の日
+========================== */
 
 function nextDay() {
 
-    date.setDate(date.getDate() + 1);
+const p =
+game.date.split("-");
 
-    updateDate();
+let year =
+Number(p[0]);
+
+let month =
+Number(p[1]);
+
+let day =
+Number(p[2]);
+
+
+day++;
+
+
+const max =
+new Date(
+year,
+month,
+0
+).getDate();
+
+
+if (day > max) {
+
+day = 1;
+
+month++;
 
 }
 
+
+if (month > 12) {
+
+month = 1;
+
+year++;
+
+}
+
+
+game.date =
+
+year +
+"-" +
+String(month).padStart(2,"0") +
+"-" +
+String(day).padStart(2,"0");
+
+
+saveGame();
+
+updateDisplay();
+
+}
+
+
+
+/* ==========================
+   球団変更
+========================== */
+
+function changeTeam() {
+
+document
+.getElementById("game")
+.classList.add("hidden");
+
+document
+.getElementById("teamSelect")
+.classList.remove("hidden");
+
+}
+
+
+
+/* ==========================
+   選手一覧
+========================== */
+
+function showPlayers() {
+
+const content =
+document.getElementById("content");
+
+
+content.innerHTML = `
+
+<h2>選手</h2>
+
+<p class="small">
+${game.team} の選手
+</p>
+
+<div id="playerList"></div>
+
+`;
+
+
+const list =
+document.getElementById("playerList");
+
+
+const players =
+getPlayersByTeam(game.team);
+
+
+if (players.length === 0) {
+
+list.innerHTML =
+
+"<p>現在、選手データが登録されていません。</p>";
+
+return;
+
+}
+
+
+players.forEach(player => {
+
+const button =
+document.createElement("button");
+
+button.className = "player";
+
+button.innerHTML = `
+
+<strong>${player.name}</strong>
+
+<span class="small">
+
+${player.position}
+・背番号 ${player.number}
+
+</span>
+
+`;
+
+button.onclick = () => {
+
+showPlayer(player);
+
+};
+
+
+list.appendChild(button);
+
+});
+
+}
+
+
+
+/* ==========================
+   選手詳細
+========================== */
+
+function showPlayer(player) {
+
+const content =
+document.getElementById("content");
+
+
+content.innerHTML = `
+
+<button class="back" onclick="showPlayers()">
+← 選手一覧へ
+</button>
+
+<h2>${player.name}</h2>
+
+<p>
+<strong>球団：</strong>${player.team}
+</p>
+
+<p>
+<strong>背番号：</strong>${player.number}
+</p>
+
+<p>
+<strong>ポジション：</strong>${player.position}
+</p>
+
+<p>
+<strong>投打：</strong>${player.batsThrows}
+</p>
+
+<p>
+<strong>生年月日：</strong>${player.birth}
+</p>
+
+<p>
+<strong>年齢：</strong>${calculateAge(player.birth)}
+</p>
+
+<p>
+<strong>登録：</strong>${player.status}
+</p>
+
+<hr>
+
+<h3>2025年成績</h3>
+
+<p>${formatStats(player.stats2025)}</p>
+
+<h3>2026年成績</h3>
+
+<p>${formatStats(player.stats2026)}</p>
+
+`;
+
+}
+
+
+
+/* ==========================
+   年齢計算
+========================== */
+
+function calculateAge(birth) {
+
+const b =
+new Date(birth);
+
+const d =
+new Date("2027-03-25");
+
+let age =
+d.getFullYear() -
+b.getFullYear();
+
+
+const birthday =
+new Date(
+d.getFullYear(),
+b.getMonth(),
+b.getDate()
+);
+
+
+if (birthday > d) {
+
+age--;
+
+}
+
+
+return age;
+
+}
+
+
+
+/* ==========================
+   成績表示
+========================== */
+
+function formatStats(stats) {
+
+if (!stats) {
+
+return "データなし";
+
+}
+
+return Object.entries(stats)
+.map(([key,value]) =>
+`${key}: ${value}`
+)
+.join(" / ");
+
+}
+
+
+
+/* ==========================
+   球団別選手取得
+========================== */
+
+function getPlayersByTeam(team) {
+
+if (typeof playersData === "undefined") {
+
+return [];
+
+}
+
+return playersData.filter(
+player => player.team === team
+);
+
+}
+
+
+
+/* ==========================
+   リセット
+========================== */
 
 function resetGame() {
 
-    team = null;
+localStorage.removeItem(
+"npb_manager_save"
+);
 
-    date = new Date(2027, 2, 25);
+game = {
 
-    document.getElementById("game").style.display = "none";
+team: null,
 
-    document.getElementById("select").style.display = "block";
+date: "2027-03-25"
+
+};
+
+
+document
+.getElementById("game")
+.classList.add("hidden");
+
+document
+.getElementById("teamSelect")
+.classList.remove("hidden");
 
 }
 
+
+
+/* ==========================
+   起動
+========================== */
+
+createTeamButtons();
+
+loadGame();
+
+
+if (game.team) {
+
+showGame();
+
+}
 
 </script>
 
