@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPB MANAGER</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  background: #f2f4f7;
+  color: #17202a;
+}
+
+header {
+  background: #14213d;
+  color: white;
+  padding: 20px 16px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+header p {
+  margin: 5px 0 0;
+  opacity: 0.8;
+  font-size: 13px;
+}
+
+main {
+  max-width: 700px;
+  margin: auto;
+  padding: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-weight: bold;
+  background: #e8edf3;
+  color: #17202a;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.primary {
+  background: #14213d;
+  color: white;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.team-button {
+  text-align: left;
+  min-height: 65px;
+}
+
+.team-button small {
+  display: block;
+  margin-top: 5px;
+  color: #68737d;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.big-date {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.muted {
+  color: #68737d;
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 9px 5px;
+  border-bottom: 1px solid #e8ebee;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  color: #68737d;
+  font-size: 12px;
+}
+
+.notice {
+  background: #eef4ff;
+  border-radius: 12px;
+  padding: 13px;
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>⚾ NPB MANAGER</h1>
+  <p>監督・GMシミュレーション</p>
+</header>
+
+<main>
+
+<!-- 球団選択 -->
+<section id="teamSelect" class="card">
+  <h2>監督する球団を選択</h2>
+  <p class="muted">
+    12球団から1球団を選んでください。
+  </p>
+
+  <h3>セ・リーグ</h3>
+  <div id="centralTeams" class="team-grid"></div>
+
+  <h3>パ・リーグ</h3>
+  <div id="pacificTeams" class="team-grid"></div>
+</section>
+
+
+<!-- ゲーム本体 -->
+<section id="game" class="hidden">
+
+  <div class="card">
+    <div class="muted">現在の日付</div>
+    <div id="date" class="big-date"></div>
+
+    <p id="myTeam"></p>
+
+    <button class="primary" onclick="nextDay()">
+      ▶ 次の日へ
+    </button>
+  </div>
+
+
+  <div class="nav">
+    <button onclick="showPage('home')">ホーム</button>
+    <button onclick="showPage('standings')">順位表</button>
+    <button onclick="showPage('schedule')">日程</button>
+    <button onclick="showPage('players')">選手</button>
+    <button onclick="showPage('trade')">トレード</button>
+    <button onclick="showPage('draft')">ドラフト</button>
+  </div>
+
+
+  <div id="content"></div>
+
+</section>
+
+</main>
+
+
+<script>
+
+const teams = [
+
+  ["阪神タイガース", "セ"],
+  ["読売ジャイアンツ", "セ"],
+  ["横浜DeNAベイスターズ", "セ"],
+  ["広島東洋カープ", "セ"],
+  ["中日ドラゴンズ", "セ"],
+  ["東京ヤクルトスワローズ", "セ"],
+
+  ["北海道日本ハムファイターズ", "パ"],
+  ["福岡ソフトバンクホークス", "パ"],
+  ["千葉ロッテマリーンズ", "パ"],
+  ["東北楽天ゴールデンイーグルス", "パ"],
+  ["オリックス・バファローズ", "パ"],
+  ["埼玉西武ライオンズ", "パ"]
+
+];
+
+
+let game = {
+  date: "2027-03-25",
+  team: null,
+  records: {}
+};
+
+
+for (const team of teams) {
+
+  game.records[team[0]] = {
+    wins: 0,
+    losses: 0
+  };
+
+}
+
+
+function saveGame() {
+
+  localStorage.setItem(
+    "npbManagerSave",
+    JSON.stringify(game)
+  );
+
+}
+
+
+function loadGame() {
+
+  const saved =
+    localStorage.getItem("npbManagerSave");
+
+  if (saved) {
+    game = JSON.parse(saved);
+  }
+
+}
+
+
+function createTeamButtons() {
+
+  const central =
+    document.getElementById("centralTeams");
+
+  const pacific =
+    document.getElementById("pacificTeams");
+
+
+  for (const team of teams) {
+
+    const button =
+      document.createElement("button");
+
+    button.className = "team-button";
+
+    button.innerHTML =
+      team[0] +
+      "<small>" +
+      team[1] +
+      "・リーグ</small>";
+
+    button.onclick = function() {
+
+      selectTeam(team[0]);
+
+    };
+
+
+    if (team[1] === "セ") {
+
+      central.appendChild(button);
+
+    } else {
+
+      pacific.appendChild(button);
+
+    }
+
+  }
+
+}
+
+
+function selectTeam(team) {
+
+  game.team = team;
+
+  saveGame();
+
+  document
+    .getElementById("teamSelect")
+    .classList.add("hidden");
+
+  document
+    .getElementById("game")
+    .classList.remove("hidden");
+
+  updateHeader();
+
+  showPage("home");
+
+}
+
+
+function updateHeader() {
+
+  document.getElementById("date")
+    .textContent = formatDate(game.date);
+
+  document.getElementById("myTeam")
+    .textContent =
+      "監督球団： " + game.team;
+
+}
+
+
+function formatDate(dateString) {
+
+  const date =
+    new Date(dateString + "T00:00:00");
+
+  return (
+    date.getFullYear() +
+    "年" +
+    (date.getMonth() + 1) +
+    "月" +
+    date.getDate() +
+    "日"
+  );
+
+}
+
+
+function nextDay() {
+
+  const date =
+    new Date(game.date + "T00:00:00");
+
+  date.setDate(date.getDate() + 1);
+
+  game.date =
+    date.toISOString().slice(0, 10);
+
+  saveGame();
+
+  updateHeader();
+
+  showPage("home");
+
+}
+
+
+function showPage(page) {
+
+  const content =
+    document.getElementById("content");
+
+
+  if (page === "home") {
+
+    content.innerHTML = `
+
+      <div class="card">
+
+        <h2>${game.team}</h2>
+
+        <div class="notice">
+
+          シーズン開始準備完了。<br><br>
+
+          現在はVer.0.1です。<br>
+          今後、試合・選手成績・トレード・
+          ドラフトなどを追加していきます。
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+
+  if (page === "standings") {
+
+    let html = `
+      <div class="card">
+      <h2>セ・リーグ順位表</h2>
+
+      <table>
+      <tr>
+        <th>順位</th>
+        <th>球団</th>
+        <th>勝</th>
+        <th>敗</th>
+      </tr>
+    `;
+
+
+    const central =
+      teams.filter(t => t[1] === "セ");
+
+
+    central.forEach((team, index) => {
+
+      const record =
+        game.records[team[0]];
+
+      html += `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${team[0]}</td>
+          <td>${record.wins}</td>
+          <td>${record.losses}</td>
+        </tr>
+      `;
+
+    });
+
+
+    html += `
+      </table>
+      </div>
+
+      <div class="card">
+      <h2>パ・リーグ順位表</h2>
+
+      <table>
+      <tr>
+        <th>順位</th>
+        <th>球団</th>
+        <th>勝</th>
+        <th>敗</th>
+      </tr>
+    `;
+
+
+    const pacific =
+      teams.filter(t => t[1] === "パ");
+
+
+    pacific.forEach((team, index) => {
+
+      const record =
+        game.records[team[0]];
+
+      html += `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${team[0]}</td>
+          <td>${record.wins}</td>
+          <td>${record.losses}</td>
+        </tr>
+      `;
+
+    });
+
+
+    html += `
+      </table>
+      </div>
+    `;
+
+
+    content.innerHTML = html;
+
+  }
+
+
+  if (page === "schedule") {
+
+    content.innerHTML = `
+
+      <div class="card">
+
+        <h2>日程</h2>
+
+        <p>
+          ${formatDate(game.date)}
+        </p>
+
+        <div class="notice">
+          試合システムは次のバージョンで実装します。
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+
+  if (page === "players") {
+
+    content.innerHTML = `
+
+      <div class="card">
+
+        <h2>選手</h2>
+
+        <div class="notice">
+
+          実在選手データベースは
+          次の段階で追加します。
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+
+  if (page === "trade") {
+
+    content.innerHTML = `
+
+      <div class="card">
+
+        <h2>トレード</h2>
+
+        <div class="notice">
+
+          他球団選手の検索、
+          昨年成績、今季成績、
+          トレード交渉を実装予定。
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+
+  if (page === "draft") {
+
+    content.innerHTML = `
+
+      <div class="card">
+
+        <h2>ドラフト</h2>
+
+        <div class="notice">
+
+          実名ドラフト候補、
+          他球団の指名、
+          ドラフト会議を実装予定。
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+createTeamButtons();
+
+loadGame();
+
+
+if (game.team) {
+
+  document
+    .getElementById("teamSelect")
+    .classList.add("hidden");
+
+  document
+    .getElementById("game")
+    .classList.remove("hidden");
+
+  updateHeader();
+
+  showPage("home");
+
+}
+
+</script>
+
+</body>
+</html>
