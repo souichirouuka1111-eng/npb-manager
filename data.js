@@ -1084,4 +1084,89 @@ const playersData = [
         birth: "1999-05-17",
         status: "支配下"
     },
+        // =========================
+    // 読売ジャイアンツ 外野手
+    // =========================
+
+    {
+        name: "丸佳浩",
+        team: "読売ジャイアンツ",
+        number: "8",
+        position: "外野手",
+        batsThrows: "右投左打",
+        birth: "1989-04-11",
+        status: "支配下"
+    },
+    {
+        name: "長野久義",
+        team: "読売ジャイアンツ",
+        number: "7",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "1984-12-06",
+        status: "支配下"
+    },
+    {
+        name: "浅野翔吾",
+        team: "読売ジャイアンツ",
+        number: "51",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "2004-11-24",
+        status: "支配下"
+    },
+    {
+        name: "オコエ瑠偉",
+        team: "読売ジャイアンツ",
+        number: "9",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "1997-07-21",
+        status: "支配下"
+    },
+    {
+        name: "萩尾匡也",
+        team: "読売ジャイアンツ",
+        number: "12",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "2000-12-28",
+        status: "支配下"
+    },
+    {
+        name: "松本剛",
+        team: "読売ジャイアンツ",
+        number: "31",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "1993-08-11",
+        status: "支配下"
+    },
+    {
+        name: "キャベッジ",
+        team: "読売ジャイアンツ",
+        number: "13",
+        position: "外野手",
+        batsThrows: "右投左打",
+        birth: "1997-07-19",
+        status: "支配下"
+    },
+    {
+        name: "岡田悠希",
+        team: "読売ジャイアンツ",
+        number: "38",
+        position: "外野手",
+        batsThrows: "右投左打",
+        birth: "2000-01-19",
+        status: "支配下"
+    },
+    {
+        name: "鈴木大和",
+        team: "読売ジャイアンツ",
+        number: "55",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "1999-06-30",
+        status: "支配下"
+    }
 ];
