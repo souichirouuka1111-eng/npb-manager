@@ -1169,4 +1169,645 @@ const playersData = [
         birth: "1999-06-30",
         status: "支配下"
     }
+        // =========================
+    // 中日ドラゴンズ
+    // =========================
+
+    // 投手
+    {
+        name: "中西聖輝",
+        team: "中日ドラゴンズ",
+        number: "11",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2003-12-18",
+        status: "支配下"
+    },
+    {
+        name: "橋本侑樹",
+        team: "中日ドラゴンズ",
+        number: "13",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1998-01-08",
+        status: "支配下"
+    },
+    {
+        name: "草加勝",
+        team: "中日ドラゴンズ",
+        number: "14",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2001-11-21",
+        status: "支配下"
+    },
+    {
+        name: "櫻井頼之介",
+        team: "中日ドラゴンズ",
+        number: "16",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2003-07-21",
+        status: "支配下"
+    },
+    {
+        name: "柳裕也",
+        team: "中日ドラゴンズ",
+        number: "17",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1994-04-22",
+        status: "支配下"
+    },
+    {
+        name: "髙橋宏斗",
+        team: "中日ドラゴンズ",
+        number: "19",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2002-08-09",
+        status: "支配下"
+    },
+    {
+        name: "涌井秀章",
+        team: "中日ドラゴンズ",
+        number: "20",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1986-06-21",
+        status: "支配下"
+    },
+    {
+        name: "金丸夢斗",
+        team: "中日ドラゴンズ",
+        number: "21",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2003-02-01",
+        status: "支配下"
+    },
+    {
+        name: "大野雄大",
+        team: "中日ドラゴンズ",
+        number: "22",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1988-09-26",
+        status: "支配下"
+    },
+    {
+        name: "仲地礼亜",
+        team: "中日ドラゴンズ",
+        number: "26",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2001-02-15",
+        status: "支配下"
+    },
+    {
+        name: "アルベルト・アブレウ",
+        team: "中日ドラゴンズ",
+        number: "28",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1995-05-26",
+        status: "支配下"
+    },
+    {
+        name: "松木平優太",
+        team: "中日ドラゴンズ",
+        number: "29",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2003-02-24",
+        status: "支配下"
+    },
+    {
+        name: "根尾昂",
+        team: "中日ドラゴンズ",
+        number: "30",
+        position: "投手",
+        batsThrows: "右投左打",
+        birth: "2000-04-19",
+        status: "支配下"
+    },
+    {
+        name: "伊藤茉央",
+        team: "中日ドラゴンズ",
+        number: "32",
+        position: "投手",
+        batsThrows: "右投左打",
+        birth: "2000-02-09",
+        status: "支配下"
+    },
+    {
+        name: "杉浦稔大",
+        team: "中日ドラゴンズ",
+        number: "33",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1992-02-25",
+        status: "支配下"
+    },
+    {
+        name: "福敬登",
+        team: "中日ドラゴンズ",
+        number: "34",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1992-06-16",
+        status: "支配下"
+    },
+    {
+        name: "福田幸之介",
+        team: "中日ドラゴンズ",
+        number: "36",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2002-12-14",
+        status: "支配下"
+    },
+    {
+        name: "松葉貴大",
+        team: "中日ドラゴンズ",
+        number: "38",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1990-08-14",
+        status: "支配下"
+    },
+    {
+        name: "勝野昌慶",
+        team: "中日ドラゴンズ",
+        number: "41",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1997-06-12",
+        status: "支配下"
+    },
+    {
+        name: "梅野雄吾",
+        team: "中日ドラゴンズ",
+        number: "46",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1999-01-13",
+        status: "支配下"
+    },
+    {
+        name: "吉田聖弥",
+        team: "中日ドラゴンズ",
+        number: "47",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2002-08-19",
+        status: "支配下"
+    },
+    {
+        name: "清水達也",
+        team: "中日ドラゴンズ",
+        number: "50",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1999-11-03",
+        status: "支配下"
+    },
+    {
+        name: "篠﨑国忠",
+        team: "中日ドラゴンズ",
+        number: "52",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2003-08-23",
+        status: "支配下"
+    },
+    {
+        name: "宮内春輝",
+        team: "中日ドラゴンズ",
+        number: "53",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1996-05-25",
+        status: "支配下"
+    },
+    {
+        name: "藤嶋健人",
+        team: "中日ドラゴンズ",
+        number: "54",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1998-05-08",
+        status: "支配下"
+    },
+    {
+        name: "齋藤綱記",
+        team: "中日ドラゴンズ",
+        number: "59",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1996-12-18",
+        status: "支配下"
+    },
+    {
+        name: "高橋幸佑",
+        team: "中日ドラゴンズ",
+        number: "61",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "2003-07-19",
+        status: "支配下"
+    },
+    {
+        name: "森博人",
+        team: "中日ドラゴンズ",
+        number: "62",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1998-05-25",
+        status: "支配下"
+    },
+    {
+        name: "有馬惠叶",
+        team: "中日ドラゴンズ",
+        number: "64",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2005-09-11",
+        status: "支配下"
+    },
+    {
+        name: "牧野憲伸",
+        team: "中日ドラゴンズ",
+        number: "68",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1999-05-18",
+        status: "支配下"
+    },
+    {
+        name: "三浦瑞樹",
+        team: "中日ドラゴンズ",
+        number: "69",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1999-07-10",
+        status: "支配下"
+    },
+    {
+        name: "近藤廉",
+        team: "中日ドラゴンズ",
+        number: "70",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1999-09-05",
+        status: "支配下"
+    },
+    {
+        name: "松山晋也",
+        team: "中日ドラゴンズ",
+        number: "90",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "2000-06-23",
+        status: "支配下"
+    },
+    {
+        name: "ウンベルト・メヒア",
+        team: "中日ドラゴンズ",
+        number: "91",
+        position: "投手",
+        batsThrows: "右投右打",
+        birth: "1997-12-10",
+        status: "支配下"
+    },
+    {
+        name: "カイル・マラー",
+        team: "中日ドラゴンズ",
+        number: "93",
+        position: "投手",
+        batsThrows: "左投左打",
+        birth: "1997-10-07",
+        status: "支配下"
+    },
+
+    // 捕手
+    {
+        name: "石伊雄太",
+        team: "中日ドラゴンズ",
+        number: "9",
+        position: "捕手",
+        batsThrows: "右投右打",
+        birth: "2001-02-17",
+        status: "支配下"
+    },
+    {
+        name: "木下拓哉",
+        team: "中日ドラゴンズ",
+        number: "35",
+        position: "捕手",
+        batsThrows: "右投右打",
+        birth: "1991-12-18",
+        status: "支配下"
+    },
+    {
+        name: "宇佐見真吾",
+        team: "中日ドラゴンズ",
+        number: "39",
+        position: "捕手",
+        batsThrows: "右投左打",
+        birth: "1993-06-04",
+        status: "支配下"
+    },
+    {
+        name: "味谷大誠",
+        team: "中日ドラゴンズ",
+        number: "43",
+        position: "捕手",
+        batsThrows: "右投左打",
+        birth: "2003-06-14",
+        status: "支配下"
+    },
+    {
+        name: "加藤匠馬",
+        team: "中日ドラゴンズ",
+        number: "49",
+        position: "捕手",
+        batsThrows: "右投右打",
+        birth: "1992-04-29",
+        status: "支配下"
+    },
+    {
+        name: "石橋康太",
+        team: "中日ドラゴンズ",
+        number: "58",
+        position: "捕手",
+        batsThrows: "右投右打",
+        birth: "2000-12-07",
+        status: "支配下"
+    },
+
+    // 内野手
+    {
+        name: "辻本倫太郎",
+        team: "中日ドラゴンズ",
+        number: "0",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "2001-08-11",
+        status: "支配下"
+    },
+    {
+        name: "田中幹也",
+        team: "中日ドラゴンズ",
+        number: "2",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "2001-11-28",
+        status: "支配下"
+    },
+    {
+        name: "高橋周平",
+        team: "中日ドラゴンズ",
+        number: "3",
+        position: "内野手",
+        batsThrows: "右投左打",
+        birth: "1994-01-18",
+        status: "支配下"
+    },
+    {
+        name: "オルランド・カリステ",
+        team: "中日ドラゴンズ",
+        number: "4",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "1992-02-20",
+        status: "支配下"
+    },
+    {
+        name: "村松開人",
+        team: "中日ドラゴンズ",
+        number: "5",
+        position: "内野手",
+        batsThrows: "右投左打",
+        birth: "2001-01-06",
+        status: "支配下"
+    },
+    {
+        name: "福永裕基",
+        team: "中日ドラゴンズ",
+        number: "7",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "1996-09-10",
+        status: "支配下"
+    },
+    {
+        name: "ミゲル・サノー",
+        team: "中日ドラゴンズ",
+        number: "23",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "1993-05-23",
+        status: "支配下"
+    },
+    {
+        name: "石川昂弥",
+        team: "中日ドラゴンズ",
+        number: "25",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "2001-06-22",
+        status: "支配下"
+    },
+    {
+        name: "森駿太",
+        team: "中日ドラゴンズ",
+        number: "31",
+        position: "内野手",
+        batsThrows: "右投左打",
+        birth: "2005-06-25",
+        status: "支配下"
+    },
+    {
+        name: "土田龍空",
+        team: "中日ドラゴンズ",
+        number: "45",
+        position: "内野手",
+        batsThrows: "右投左打",
+        birth: "2002-12-30",
+        status: "支配下"
+    },
+    {
+        name: "阿部寿樹",
+        team: "中日ドラゴンズ",
+        number: "48",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "1989-12-03",
+        status: "支配下"
+    },
+    {
+        name: "新保茉良",
+        team: "中日ドラゴンズ",
+        number: "56",
+        position: "内野手",
+        batsThrows: "右投左打",
+        birth: "2002-12-10",
+        status: "支配下"
+    },
+    {
+        name: "山本泰寛",
+        team: "中日ドラゴンズ",
+        number: "60",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "1993-10-10",
+        status: "支配下"
+    },
+    {
+        name: "板山祐太郎",
+        team: "中日ドラゴンズ",
+        number: "63",
+        position: "内野手",
+        batsThrows: "右投左打",
+        birth: "1994-03-27",
+        status: "支配下"
+    },
+    {
+        name: "知野直人",
+        team: "中日ドラゴンズ",
+        number: "65",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "1999-02-16",
+        status: "支配下"
+    },
+    {
+        name: "クリスチャン・ロドリゲス",
+        team: "中日ドラゴンズ",
+        number: "95",
+        position: "内野手",
+        batsThrows: "右投右打",
+        birth: "2001-10-18",
+        status: "支配下"
+    },
+    {
+        name: "樋口正修",
+        team: "中日ドラゴンズ",
+        number: "97",
+        position: "内野手",
+        batsThrows: "右投左打",
+        birth: "1998-11-17",
+        status: "支配下"
+    },
+
+    // 外野手
+    {
+        name: "尾田剛樹",
+        team: "中日ドラゴンズ",
+        number: "00",
+        position: "外野手",
+        batsThrows: "左投左打",
+        birth: "2000-08-03",
+        status: "支配下"
+    },
+    {
+        name: "岡林勇希",
+        team: "中日ドラゴンズ",
+        number: "1",
+        position: "外野手",
+        batsThrows: "右投左打",
+        birth: "2002-02-22",
+        status: "支配下"
+    },
+    {
+        name: "大島洋平",
+        team: "中日ドラゴンズ",
+        number: "8",
+        position: "外野手",
+        batsThrows: "左投左打",
+        birth: "1985-11-09",
+        status: "支配下"
+    },
+    {
+        name: "ジェイソン・ボスラー",
+        team: "中日ドラゴンズ",
+        number: "24",
+        position: "外野手",
+        batsThrows: "右投左打",
+        birth: "1994-08-14",
+        status: "支配下"
+    },
+    {
+        name: "福元悠真",
+        team: "中日ドラゴンズ",
+        number: "40",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "1999-12-12",
+        status: "支配下"
+    },
+    {
+        name: "ブライト健太",
+        team: "中日ドラゴンズ",
+        number: "42",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "1999-05-07",
+        status: "支配下"
+    },
+    {
+        name: "川越誠司",
+        team: "中日ドラゴンズ",
+        number: "44",
+        position: "外野手",
+        batsThrows: "左投左打",
+        birth: "1993-06-30",
+        status: "支配下"
+    },
+    {
+        name: "上林誠知",
+        team: "中日ドラゴンズ",
+        number: "51",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "1995-08-01",
+        status: "支配下"
+    },
+    {
+        name: "細川成也",
+        team: "中日ドラゴンズ",
+        number: "55",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "1998-08-04",
+        status: "支配下"
+    },
+    {
+        name: "花田旭",
+        team: "中日ドラゴンズ",
+        number: "57",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "2002-12-23",
+        status: "支配下"
+    },
+    {
+        name: "鵜飼航丞",
+        team: "中日ドラゴンズ",
+        number: "66",
+        position: "外野手",
+        batsThrows: "右投右打",
+        birth: "1999-05-30",
+        status: "支配下"
+    },
+    {
+        name: "能戸輝夢",
+        team: "中日ドラゴンズ",
+        number: "67",
+        position: "外野手",
+        batsThrows: "右投左打",
+        birth: "2002-03-08",
+        status: "支配下"
+    },
 ];
